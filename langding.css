@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(239, 240, 244);
+}
+
+.teach {
+    height: 60px;
+    background-color: rgb(95, 192, 205);
+
+}
+
+.picture {
+    position: absolute;
+    left: 20px;
+    width: 40px;
+}
+
+.middle {
+    position: absolute;
+    text-align: center;
+    left: 43%;
+    width: 42px;
+    top: 10px;
+}
+
+.right {
+    position: absolute;
+    text-align: right;
+    right: 20px;
+    width: 42px;
+
+}
+
+.div {
+    background-color: rgb(255, 255, 255);
+    width: auto;
+}
+
+.sizg {
+    background-color: rgb(239, 240, 244);
+    display: block;
+    width: 300px;
+    margin: 3px auto 3px 0px;
+}
+
+.bottle {
+    text-align: center;
+    background-color: rgb(95, 192, 205);
+    width:auto;
+}
+
+.base {
+   
+    
+    left: 50%; 
+    width: 40px;
+}
