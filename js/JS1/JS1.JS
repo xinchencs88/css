@@ -2,6 +2,7 @@ var a = document.getElementsByClassName("div");
 var bone = document.getElementById("b-one");
 var btwo = document.getElementById("b-two");
 var animation;
+// 实验覆盖传递
 function array() {
     // 随机获得3个小方块
     var noe = Math.floor(Math.random()*9);
