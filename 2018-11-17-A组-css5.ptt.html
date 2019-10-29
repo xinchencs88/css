@@ -1,207 +1,632 @@
-<!doctype html>
-<html>
+< html  class = “ js no-mobile desktop no-ie chrome chrome69 task-section xkt-section gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions do-touch retina fontface domloaded gr__maikihyh_github_io w-613 gt-240 gt-240 480 lt-640 lt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920肖像无景观“
+      id = “ 2018-09-18-a-css-10-page ” >
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+< 头 >
+    < meta  charset = “ utf-8 ” >
+    < meta  name = “ viewport ”  content = “ width = device-width，初始比例= 1.0，最大比例= 1.0，用户可缩放=否” >
 
-    <title>葡萄藤PPT</title>
+    < title >简述JS中this的指向</ title >
 
-    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+    < 链接 rel = “样式表”  href = “ https://ptteng.github.io/PPT/css/reveal/reveal.css ” >
 
-    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
-    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+    <！- PPT主题，可以在/ css / reveal / theme /中选择其他主题，目前暂时只能使用该模板->
+    < 链接 rel = “样式表”  href = “ https://ptteng.github.io/PPT/css/reveal/theme/ptt.css ” >
 
-    <!-- syntax highlighting 代码高亮主题 -->
-    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+    <！-语法高亮代码高亮主题->
+    < 链接 rel = “样式表”  href = “ https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css ” >
 
-    <style>
+    < 样式 >
         .float {
-            float: left;
+            浮动：左 ;
         }
-
-        p.font {
-            text-align: left;
-        }
-    </style>
+    </ style >
 
 
-    <!-- 打印和PDF输出样式 -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ?
-            'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-</head>
+    <！-打印和PDF输出样式->
+    < 脚本 >
+        var link =  document。createElement（' link '）;
+        链接。rel  =  '样式表' ;
+        链接。类型 =  ' text / css ' ;
+        链接。href  =  窗口。位置。搜索。匹配（/ print-pdf / gi）？ ' https://ptteng.github.io/PPT/css/reveal/print/pdf.css ' ： ' ../css/reveal/print/paper.css ' ;
+        文件。getElementsByTagName（' head '）[ 0 ]。appendChild（链接）；
+    </ 脚本 >
+    < link  rel = “ stylesheet ”  type = “ text / css ”  href = “ ../ css/ reveal / print / paper.css ” >
+    < 脚本 类型 = “ text / javascript ”  src = “ ../plugin / markdown / marked.js ” > </ 脚本 >
+    < 脚本 类型 = “ text / javascript ”  src = “ ../plugin / markdown / markdown.js ” > </ 脚本 >
+    < 脚本 类型 = “ text / javascript ”  src = “ ../plugin / notes / notes.js ” > </ 脚本 >
+    < 脚本 类型 = “ text / javascript ”  src = “ ../plugin / highlight / highlight.js ” > </ 脚本 >
+</ head >
 
-<body>
-    <img src="img/demo/logo.png" alt="" usemap="#pttmap" class="base-logo">
-    <map name="pttmap">
-        <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com" alt="" target="_blank" />
-    </map>
-    <div class="reveal">
-        <div class="slides">
-            <section>
-                <h2>
-                    请解释一下CSS3的Flexbox（弹性盒布局模型）以及适用场景？</h2>
-                <p style="text-align: center;">分享人：余昕宸</p>
-            </section>
-            <section>
-                <p>目录</p>
-                <p>1.背景介绍</p>
-                <p>2.知识剖析</p>
-                <p>3.常见问题</p>
-                <p>4.解决方案</p>
-                <p>5.编码实战</p>
-                <p>6.扩展思考</p>
-                <p>7.参考文献</p>
-                <p>8.更多讨论</p>
-            </section>
-            <section>
-                <h3>一、背景介绍</h3>
-            </section>
-            <section>
-                <h3></h3>
-                <P class="font">网页布局（layout）是 CSS 的一个重点应用。布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 +
-                    float属性。它对于那些特殊布局非常不方便</P>
-                <P class="font">2009年，W3C 提出了一种新的方案----Flex
-                    布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</P>
+< body  data-gr-cs-loaded = “ true ” >
+< img  src = “ ./葡萄藤PPT_files / logo.png ”  alt = “ ”  usemap = “ #pttmap ”  class = “基本徽标” >
+< 映射 名称 = “ pttmap ” >
+    < 区域 形状 = “矩形” 坐标 = “ 0,0,276,58 ”  href = “ http://www.jnshu.com/ ”  alt = “ ”  target = “ _blank ” >
+</ map >
+< div  class = “显示中心默认值” 角色 = “应用程序”  data-transition-speed = “慢速”  data-background-transition = “淡出” >
+    < div  class = “幻灯片”
+         样式 = “ 宽度：960 像素 ; 高度：700 像素 ; 左侧：50 ％ ; 顶部：50 ％ ; 底部：自动 ; 右侧：自动 ; 转换：翻译（-50 ％，- 50 ％）比例（0.574688）; ” >
+        < section  class = “ present ”  style = “ 顶部：178 像素；显示：块；” >
+            < h2 >【简述JS中this的指向】</ h2 >
+            <！- <h3>如何阻止事件冒泡和交替事件？</ h3> ->
+            < p >分享人：余昕宸</ p >
+        </ 部分 >
+        < section  class = “ future ”  style = “ top：1.5 px ; display：block ; ”  hidden = “ ”  aria-hidden = “ true ” >
+            < p >目录</ p >
+            < p > 1。背景介绍</ p >
+            < p > 2。知识剖析</ p >
+            < p > 3。常见问题</ p >
+            < p > 4。解决方案</ p >
+            < p > 5。编码实战</ p >
+            < p > 6。扩展思考</ p >
+            < p > 7。参考文献</ p >
+            < p > 8。更多讨论</ p >
+        </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：267 像素 ; 显示：块 ; ” >
+            < h3 > 1。背景介绍</ h3 >
+        </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            < h4 > JAVASCRIPT中THIS指的是什么？</ h4 >
+            < p  style = “ 文本对齐：对齐 ” >
+                此关键字是JavaScript中最复杂的机制之一。它是一个很特别的关键字，被自动定义在所有函数的作用域中。
+            </ p >
 
-            </section>
+        </ 部分 >
+       
+        </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            < h3 > 2。知识剖析</ h3 >
+        </ 部分 >
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！-＆lt;！＆ndash; <h4>先来了解一下事件流</ h4>＆ndash;＆gt; ->
+            <！- <p style =“ letter-spacing：5px”>由于其运行期绑定的特性，JavaScript中此含义要丰富得多，它可以是多个对象，当前对象或任意对象，->
+                <！-这完全完全函数的调用方式。JavaScript中函数的调用有以下几种方式：作为对象方法调用，作为函数调用，作为构造函数调用，->
+                <！-和使用apply或call调用。下面我们将按照调用方式的不同，分别讨论this的含义。</ p> ->
+
+        <！- </ section> ->
+        < section  class = “ present ”  style = “ 顶部：0 像素；显示：块；” >
+            < h4 >作为对象方法调用</ h4 >
+            < p  style = “ 字母间距：5 px ” >
+                在JavaScript中，函数也是对象，因此函数可以作为一个对象的属性，此时该函数被称为该对象的方法，在使用这种调用方式时，此被自然绑定到该对象。
+            </ p >
+            < pre > < 代码 类 = “ hljs less ” >
+                var person = {
+                    fname：'花花'，
+                    lname：“王”，
+                    全名：功能（）{
+                        console.log（this）
+                        返回this.lname + this.fname;
+                    }
+                }
+
+                console.log（person.fullname（））;
+            </ code > </ pre >
+        </ 部分 >
+        < section  class = “ present ”  style = “ 顶部：0 像素；显示：块；” >
+            < h4 >作为函数调用</ h4 >
+            < p  style = “ 字母间距：5 px ” >
+                函数也可以直接被调用，然后此绑定到对象。在浏览器中，窗口就是该变量对象。
+                函数被称为时，此被绑定到对象，然后执行赋值语句，相当于隐式的声明了一个变量，这不是调用者希望的。
+            </ p >
+            < pre > < 代码 类 = “ hljs less ” >
+                var person = {
+                    fname：'花花'，
+                    lname：“王”，
+                    全名：功能（）{
+                        console.log（this）
+                        返回this.lname + this.fname;
+                    }
+                }
+                // console.log（person.fullname（））;
+               
+                var cs = person.fullname;
+                console.log（cs（））
+            </ code > </ pre >
+
+        </ 部分 >
+        <！- <section class =“ present” style =“ top：0px; display：block;”>
+            <p style =“ letter-spacing：5px”>对于内部函数，即声明在另外一个函数体内的函数，这种绑定到该对象的方式会产生另外一个问题。首先，
+                这次我们希望在moveTo方法内定义两个函数，
+                分别将x，y坐标进行平移。结果可能出乎大家意料，另一个点对象没有移动，反而多出两个变量变量x，y。</ p>
+        </ section> ->
+        < section  class = “ present ”  style = “ 顶部：0 像素；显示：块；” >
+            <！- <h4>作为函数调用</ h4> ->
+            <！- <p style =“ letter-spacing：5px”> ->
+                <！ -函数也可以直接被调用，此时这个绑定到全局对象在浏览器中，窗口就是该全局对象比如下面的例子：。。- >
+                <！-函数被调用时，此被绑定到对象，然后执行赋值语句，相当于隐式的声明了一个变量，这就是不是调用者希望的。- >
+            <！- </ p> ->
+            <！- <pre> <code class =“ hljs less”>
+            var point = {
+                    x：0，
+                    y：0，
+                    moveTo：function（x，y）{
+                        //内部函数
+                        var moveX = function（x）{
+                        this.x = x; // this绑定到了哪里？
+                       };
+                       //内部函数
+                       var moveY = function（y）{
+                       this.y = y; // this绑定到了哪里？
+                       };
+                       moveX（x）;
+                       moveY（y）;
+                       }
+                    };
+                    point.moveTo（1，1）;
+                    point.x; // ==> 0
+                    点 // ==> 0
+                    X; // ==> 1
+                    y; // ==> 1
+            </ code> </ pre> ->
+            < p  style = “ letter-spacing：5 px ” >此等于什么不是取决余所在的位置，还是依次如何调用的。
+                而我是直接调用cs（）所以这里这等于变量变量。这是直接调用cs（）所以这就是等于变量变量，</ p >
+        </ 部分 >
+
+        <！- <section class =“ present” style =“ top：0px; display：block;”> ->
+            <！- <h4>作为函数调用</ h4> ->
+            <！- <p style =“ letter-spacing：5px”> ->
+            <！ -函数也可以直接被调用，此时这个绑定到全局对象在浏览器中，窗口就是该全局对象比如下面的例子：。。- >
+            <！-函数被调用时，此被绑定到对象，然后执行赋值语句，相当于隐式的声明了一个变量，这就是不是调用者希望的。- >
+            <！- </ p> ->
+            <！- <pre> <code class =“ hljs less”>
+            var point = {
+                    x：0，
+                    y：0，
+                    moveTo：function（x，y）{
+                         var that = this;
+                        //内部函数
+                        var moveX = function（x）{
+                        那x = x;
+                        };
+                        //内部函数
+                        var moveY = function（y）{
+                        y = y;
+                        }
+                        moveX（x）;
+                        moveY（y）;
+                        }
+                    };
+                    point.moveTo（1，1）;
+                    point.x; // ==> 1
+                    点 // ==> 1
+            </ code> </ pre> ->
+            <！- <p style =“ letter-spacing：5px”>这属于JavaScript的设计缺陷，正确的设计方式是内部函数的，应该绑定到其外层函数对应的对象上，->
+                <！-为了规避这一设计缺陷，聪明的JavaScript程序员想出了变量替代的方法，约定俗成，该变量一般被命名为那个。</ p> ->
+        <！- </ section> ->
+
+
+        < section  class = “ present ”  style = “ 顶部：0 像素；显示：块；” >
+            < h4 >作为构造函数调用</ h4 >
+            < p  style = “ letter-spacing：5 px ” > JavaScript支持面向对象样式编程，与主流的面向对象样式编程语言不同，JavaScript并没有类（class）的概念，
+                相应的，JavaScript中的构造函数也很特殊，如果不使用new调用，则和普通函数一样。
+                作为又一项约定俗成的规范，构造函数以大写字母开头，提醒调用者使用正确的方式调用。如果调用正确，此绑定到新创建的对象上。</ p >
+
+
+                < pre > < 代码 类 = “ hljs less ” >
+            函数Point（x，y）{
+                           this.x = x;
+                           this.y = y;
+                        }
+            </ code > </ pre >
+                <！- <p style =“ letter-spacing：5px”>这属于JavaScript的设计缺陷，正确的设计方式是内部函数的，应该绑定到其外层函数对应的对象上，->
+                <！-为了规避这一设计缺陷，聪明的JavaScript程序员想出了变量替代的方法，约定俗成，该变量一般被命名为那个。</ p> ->
+            <！- <p style =“ letter-spacing：5px”>需要先了解一些关键点：1.event事件对象2.目标源：target 3.当前目标源：currentTarget 4.元素</ p> - ->
+        </ 部分 >
+
+
+
+        < section  class = “ present ”  style = “ 顶部：0 像素；显示：块；” >
+            < h4 >使用Apply或call调用</ h4 >
+            < p  style = “ letter-spacing：5 px ” >让我们再一次重复，在JavaScript中函数也是对象，对象则有方法，apply和call就是函数对象的方法。
+                这两个方法异常强大，他们允许切换函数执行的上下文环境（上下文），即此绑定的对象。很多JavaScript中的技巧以及类库都用到了该方法。
+            </ p >
+        </ 部分 >
+        <！- <section class =“ present” style =“ top：0px; display：block;”> ->
+            <！- <h4>使用apply或call调用</ h4> ->
+            <！- <p style =“ letter-spacing：5px”>让我们再一次重复，在JavaScript中函数也是对象，对象则有方法，apply和call就是函数对象的方法。- >
+                <！-这两个方法异常强大，他们允许切换函数执行的上下文环境（上下文），即此绑定的对象。很多JavaScript中的技巧以及类库都用到了该方法。- >
+            <！- </ p> ->
+            <！- <pre> <code class =“ hljs less”>
+            函数Point（x，y）{
+                           this.x = x;
+                           this.y = y;
+                           this.moveTo = function（x，y）{
+                               this.x = x;
+                               this.y = y;
+                           }
+                        }
+                        var p1 = new Point（0，0）;
+                        var p2 = {x：0，y：0};
+                        p1.moveTo（1，1）;
+                        p1.moveTo.apply（p2，[10，10]）;
+            </ code> </ pre>
+        </ section> ->
+
+
+        <！- <section class =“ present” style =“ top：0px; display：block;”>
+            <！- <h4> 2.target和currentTarget </ h4> ->
+            <！- <p style =“ letter-spacing：5px”>通过上面的例子通过call
+            </ p>
+        </ section> -> 
+        <！- <section class =“ present” style =“ top：0px; display：block;”> ->
+            <！- <h4> 3.element对象</ h4> ->
+            <！- <p style =“ letter-spacing：5px”>元素对象表示html元素，可以拥有的类型为元素例程，文本队列，属性数组等->
+            <！- </ p> ->
+
+        <！- </ section> ->
+
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <p style =“ letter-spacing：5px”>事件冒泡</ p> ->
+            <！- <p style =“ letter-spacing：5px”>在一个对象上触发某类事件（例如点击事件），如果此对象定义了此事件的处理程序，->
+                <！-那么此事件就会启动这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，->
+                <！-从里到外，直到它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最严重，即document对象（有些浏览器是window）。（演示） </ p> ->
+            <！-简单的说，就是我鼠标点击一个元素上，这个事件会在这个元素所有祖先元素中触发，一直冒泡到dom最上层->
+            <！- <p style =“ letter-spacing：5px”> </ p> ->
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <h4>事件冒泡有什么用？</ h4> ->
+
+            <！ - <P风格= “字母间距：5像素”>想象一下现在我们有一个10列，100行的HTML表格，你希望在用户点击表格中的某一单元格的时候做点什么。- ->
+                <！-这样说我有一次就需要让表格中的每一个单元格在被点击的时候变成可编辑状态。如果把事件处理器加到这1000个单元格会产生一个很大的性能问题，->
+                <！-并且有可能导致内存过多甚至是浏览器的崩溃。相反地，使用事件代理的话，->
+                <！-你只需要把一个事件处理器添加到表元素上就可以了，这个函数可以把点击事件给截停，并且判断出是哪个单元格被点击了。</ p> ->
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <h4>要注意的问题：</ h4> ->
+            <！- <p style =“ letter-spacing：5px”> 1）focus，blur和scroll事件不会冒泡。文档元素上的loadevent会冒泡，但它会在文档对象上停止冒泡而不会传播到window对象。- >
+                <！-只有当整个文档都加载完成时才会触发window对象的loadEvent。- >
+
+                <！- 2）阻止冒泡并不会阻止替代行为，某些提交按钮被点击后会提交表单数据。</ p> ->
+
+        <！- </ section> ->
+
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <h3>如何阻止冒泡</ h3> ->
+        <！- </ section> ->
+
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <p style =“ text-align：left”> 1.stopPropagation（），见演示</ p> ->
+
+
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <p style =“ text-align：left”> 2.返回false </ p> ->
+            <！- <p style =“ text-align：left”> javascript的返回false将停止行为，而是用jQuery的话则既阻止行为又防止对象冒泡。见</ p> - >
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <h3>如何阻止中断事件</ h3> ->
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <p style =“ text-align：left”>可以使用preventDefault（）方法，直接使用事件对象调用即可</ p> ->
+
+        <！- </ section> ->
+        <！- <section class =“ future” aria-hidden =“ true” style =“ top：330px; display：none;” 隐藏=“”> ->
+            <！- <p style =“ text-align：left”>（2）直接赋值形式是在执行阶段创建</ p> ->
+            <！- <pre> <code class =“ hljs less”> ->
+                            <！-警报（a）; // undefined，这个大家都知道->
+                            <！- b = 10; ->
+                            <！-警报（b）; // 10，代码执行阶段创建->
+
+                            <！- var a = 20; ->
+                            <！-警报（a）; // 20，代码执行阶段修改->
+                        <！- </ code> </ pre> ->
+        <！- </ section> ->
+
+
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            < h3 > 3。常见问题</ h3 >
+            < p  style = “ text-align：left ” >如何更改此的指向？</ p >
+        </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            <！- <h3> 3。常见问题</ h3> ->
+            < h4 >解决方案</ h4 >
+        </ 部分 >
+
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+
+            <！- <p style =“ letter-spacing：5px”>这两种方法是有区别的。returnfalse除非阻止了事件冒泡，还阻止了事件本身。- >
+                <！- stopPropagation（）方法只会停止事件冒泡，不会阻止事件本身。- >
+
+            <！- </ p> ->
+            < p  style = “ 文本对齐：左 ” >
+                //一个对象可以作为调用和应用的第一个参数，并且此会被绑定到这个对象。
+                var obj = {a：'自定义'};
+
+                //这个属性是在全局对象定义的。
+                var a ='Global';
+
+                函数whatsThis（arg）{
+                  console.log（this.a）// this的值确定函数的调用方式
+                }
+
+                这是什么（）; //'Global'
+                whatsThis.call（obj）; //'自定义'
+                whatsThis.apply（obj）; //'自定义'
+            </ p >
+        </ 部分 >
+
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”>
+            <！- <p style =“ letter-spacing：5px”>这两种方法是有区别的。returnfalse既阻止了事件冒泡，又阻止了事件本身。- >
+            <！- stopPropagation（）方法只会停止事件冒泡，不会阻止事件本身。- >
+
+            <！- </ p> ->
+            <！- <p style =“ text-align：left”>
+                如果返回值是一个对象，那么此指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
+            </ p>
+        </ section> -> 
+
+        < section  hidden = “ ”  aria-hidden = “ true ”  class = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” > < h3 > 5。扩展思考</ h3 >
+
+        </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            < p  style = “ text-align：left ” >除了call和applet外还有bind进行调用</ p >
            
-            <section>
-                <h3>二、知识剖析</h3>
-            </section>
+        </ 部分 >
+        <！- <section hidden =“” aria-hidden =“ true” class =“ stack future” style =“ top：330px; display：none;”>
+            <section style =“ top：330px;显示：无；”>
+                <p style =“ text-align：center”> JavaScript中的函数既可以被视为普通函数执行，也可以作为对象的方法执行，这是导致这种有意义的丰富的实现
+                </ p>
+                <！- <p style =“ text-align：center”> focus，blur和scroll事件不会冒泡。文档元素上的负载事件会冒泡，但它会在文档对象上停止冒泡而不会传播到window对象->
+                <！- </ p> ->
+            <！- </ section>
+        </ section>
+        <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”>
+            <p style =“ text-align：left”>一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有行为均发生在此执行环境中，
+                建立该执行环境时，JavaScript首先会创建参数变量，其中包含调用函数时初始化的参数。然后创建作用域链。然后初始化变量，
+                首先初始化函数的形参表，变量参数中对应的值，如果参数变量中没有对应值，则该形参初始化为undefined。</ p>
+        </ section>
+        <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”>
+            <p style =“ text-align：left”>如果该函数中包含内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内部定义的局部变量，
+                需要注意的是此时这些变量初始化为undefined，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，
+                这点对于我们理解JavaScript中的变量作用域非常重要，考虑到篇幅，我们先不在这里讨论这个话题。最后为这个变量赋值，
+                如前所述，会根据函数调用方式的不同，赋予给此变量对象，当前对象等。至此函数的执行环境（ExecutionContext）创建成功，
+                函数开始逐行执行，所需变量均从之前合并好的执行环境（ExecutionContext）中读取。</ p>
+        </ section> -> -
+        <！- <section hidden =“” aria-hidden =“ true” class =“ future” style =“ top：330px; display：none;”> ->
+            <！- <p style =“ text-align：left”>我们来看看在JavaScript中经常被误用的一种情况：某些函数。js支持函数式编程，->
+                <！-函数属于一级对象，可以作为参数被传递。请看下面的示例myObject.handler作为替代函数，会在onclick事件被触发时调用，->
+                <！-但此时，该函数已经在另一个一个执行环境（ExecutionContext）中执行了，此自然也不会绑定到myObject对象上。</ p> ->
+        <！- </ section> ->
+        <！- <section hidden =“” aria-hidden =“ true” class =“ stack future” style =“ top：330px; display：none;”> ->
+            <！- <section style =“ top：330px; display：none;”> ->
+                <！- <p style =“ text-align：center”> ->
 
+                    <！---->
+                    <！---->
+                        <！- </ p> ->
+    <！---->
+                <！- </ section> ->
+    <！---->
+            <！- </ section> ->
+            < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
 
-            <section>
-                <h3>什么是flex布局</h3>
-                <p>Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。 任何一个容器都可以指定为 Flex 布局。</p>
-                <p>块级元素只需要display属性为flex即可。行内元素也可以使用 Flex 布局。.box{ display: inline-flex; }。Webkit 内核的浏览器，必须加上-webkit前缀。</p>
-            </section>
-            <section>
-                <h3>基本概念</h3>
-                
-                <p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。
-                    它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。
-                    项目默认沿主轴排列。</p>
-                    
-            </section>
-            <section>
-                <img src="01.png" alt="">
-            </section>
-            <section>
-                <h3>容器的六大属性</h3>
-                <p>flex-direction属性决定主轴的方向（即项目的排列方向）。</p>
-                <p>flex-wrap属性定义，如果一条轴线排不下，如何换行。默认情况下，项目都排在一条线（又称"轴线"）上。</p>
-                <p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</p>
-                <P>justify-content属性定义了项目在主轴上的对齐方式。</P>
-                <P>align-items属性定义项目在交叉轴上如何对齐。</P>
-                <p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-            </section>
-            <section>
-                <h3>项目的六大属性</h3>
-                <p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-                <p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
-                <p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</p>
-                <p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
-            </section>
-            <section>
-                <p>flex属性是以上三个的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0
-                    auto)。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
-                <p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch</p>
-            </section> 
+                < h3 > 6。编码实战</ h3 >
+            </ 部分 >
 
-            <section>
-                <h3>三、常见问题</h3>
-            </section>
-            <section>
-                <h3>兼容问题</h3>
-                <p>flex的兼容性如何？</p>
-             <p>flex的布局在熟练以后非常好用，但是pc端兼容性相对较差，IE要10，甚至11以上才能要很好的兼容。</p>
-            </section>
-            <section>
-                <h3>四、解决方案</h3>
-            </section>
-            <section>
-                <p>现在flex已经得到绝大部分的浏览器的支持，可以通过查看内核了解是否支持</p>
-            </section>
-            <section>
-                <h3>五、编码实战</h3>
-            </section>
-            <section>
-                <h3>六、拓展思考</h3>
-               <p>传统布局和flex布局</p>
-            </section>
-            <section>
-                <h3>七、参考文献</h3>
-            </section>
-            <section>
-                <a href="https://www.cnblogs.com/jerehedu/p/7358329.html?tdsourcetag=s_pcqq_aiomsg">博客园-Flex 布局</a>
-                <br>
+            < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+                < h3 > 7。参考文献</ h3 >
+            </ 部分 >
+            < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+                < p > < 一个 HREF = “ https://gaohaoyang.github.io/2015/05/20/scope/ ” 目标 = “ _blank ” >
+                    参考一</ a >
 
-                <br>
-            </section>
-            <section>
-                <h3>八、更多讨论</h3>
-            </section>
-            <section>
-                <h4>鸣谢</h4>
-                <p>感谢大家观看</p>
-                <p>BY : 余昕宸</p>
-            </section>
+                </ p >
+                < p > < 一个 HREF = “ https://juejin.im/entry/57f5d492bf22ec006475238f ” 目标 = “ _blank ” >参考2 </ 一 > </ p >
+                < p > < 一个 HREF = “ https://github.com/mqyqingfeng/Blog/issues/3 ” 目标 = “ _blank ” >参考3 </ 一 > </ p >
+            </ 部分 >
+            < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+                < h3 > 8。更多讨论</ h3 >
+            </ 部分 >
+        < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+            < h3 > 1.return = false可以阻止那一层的事件冒泡？2。怎么防止事件是冒泡上来的</ h3 >
+            < p > 1。写在那一层里就阻止其冒泡行为。2。使用事件代理，$。on（），这其实是将事件监听（代理）在父元素上面，内部也是利用了冒泡的机制，并判断目标源，实现事件代理的。</ p >
+        </ 部分 >
+            < section  hidden = “ ”  aria-hidden = “ true ” 类 = “未来”  style = “ 顶部：330 px ; 显示：无 ; ” >
+                < h4 >鸣谢</ h4 >
+                < p >感谢大家观看</ p >
+                < p >
+                    < small >宋恒</ small >
+                </ p >
+            </ 部分 >
 
-        </div>
-    </div>
+        </ div >
+        < div  class = “背景” >
+            < div  class = “幻灯片背景存在”  data-loaded = “ true ”  style = “ display：block ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  data-loaded = “ true ”  style = “ display：block ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  data-loaded = “ true ”  style = “ display：block ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景堆栈将来”  style = “ display：none ; ” >
+                < div  class = “幻灯片背景呈现”  style = “ display：none ; ” > </ div >
+            </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+            < div  class = “幻灯片背景的未来”  style = “ display：none ; ” > </ div >
+        </ div >
+        < div  class = “ progress ”  style = “ display：block ; ” > < span  风格 = “ width：0 px ; ” > </ span > </ div >
+        < 除了 class = “ controls ”  style = “ display：block ; ” >
+            < button  class = “导航左”  aria-label = “上一张幻灯片” > </ button >
+            < 按钮 类 = “已启用向右导航”  aria-label = “下一张幻灯片” > </ 按钮 >
+            < 按钮 类 = “导航向上” 咏叹调标签 = “上面滑动” > </ 按钮 >
+        </ 一旁 >
+        < div  class = “幻灯片编号”  style = “ display：无 ; ” > </ div >
+        < div  class = “演讲者注释”  data-prevent-swipe = “ ” > </ div >
+        < div  class = “暂停叠加” > </ div >
+        < div  id = “ aria-status-div ”  aria-live = “有礼貌”  aria-atomic = “ true ”
+             样式 = “ 位置：绝对 ; 高度：1 像素 ; 宽度：1 像素 ; 溢出：隐藏 ; 剪辑：矩形（1 像素，1 像素，1 像素，1 像素）; ” >
+            【简述JS中this的指向】
 
-    <script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
-    <script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+            分享人：宋恒
+        </ div >
+    </ div >
 
-    <script>
-        // 以下为常见配置属性的默认值
+    < 脚本 src = “ https://ptteng.github.io/PPT/lib/reveal/js/head.min.js ” > </ 脚本 >
+    < 脚本 src = “ https://ptteng.github.io/PPT/lib/reveal/reveal.js ” > </ 脚本 >
+
+    < 脚本 >
+        //以下为常见配置属性的预设值
         // {
-        // 	controls: true, // 是否在右下角展示控制条
-        // 	progress: true, // 是否显示演示的进度条
-        // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
-        // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
-        // 	keyboard: true, // 是否启用键盘快捷键来导航
-        // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
-        // 	center: true, // 是否将幻灯片垂直居中
-        // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
-        // 	loop: false, // 是否循环演示
-        // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
-        // 	fragments: true, // 全局开启和关闭碎片。
-        // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
-        // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
-        // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
-        // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+        //  	控件：true，//是否在右下角展示控制条
+        //  	progress：true，//是否显示演示的进度条
+        //  	slideNumber：false，//是否显示当前幻灯片的页数编号，也可以使用代码slideNumber：'c / t'，表示当前页/总页数。
+        //  	历史记录：false，//是否将每个幻灯片更改加入浏览器的历史记录中去
+        //  	keyboard：true，//是否启用键盘快捷键来导航
+        //  	总览：true，//是否启用幻灯片的概览模式，可使用“ Esc”或“ o”键来切换概览模式
+        //  	center：true，//是否将幻灯片垂直居中
+        //  	touch：true，//是否在触屏设备上启用触摸滑动切换
+        //  	loop：false，//是否循环演示
+        //  	rtl：false，//是否将演示的方向变成RTL，即从右往左
+        //  	fragment：true，//串联开启和关闭碎片。
+        //  	autoSlide：0，//两个幻灯片之间自动切换的时间间隔（毫秒），当设置成0的时候则禁止自动切换，该值可以被幻灯片上的`data-autoslide`属性覆盖
+        //  	transition：'default'，//切换过渡效果，没有/ fade / slide / convex / concave / zoom
+        //  	transitionSpeed：'default'，//过渡速度，default / fast / slow
+        //  	mouseWheel：true，//是否启用通过鼠标滚轮来切换幻灯片
         // }
-        // 初始化幻灯片
-        Reveal.initialize({
-            history: true,
-            dependencies: [{
-                    src: 'https://ptteng.github.io/PPT/plugin/markdown/marked.js'
-                },
+        //初始化幻灯片
+        显露。初始化（{
+            //         历史记录：是的，
+            过渡： '默认'，
+            transitionSpeed ： '慢'，
+            依赖项： [{
+                src ： ' ../plugin/markdown/marked.js '
+            }，
                 {
-                    src: 'https://ptteng.github.io/PPT/plugin/markdown/markdown.js'
-                },
+                    src ： ' ../plugin/markdown/markdown.js '
+                }，
                 {
-                    src: 'https://ptteng.github.io/PPT/plugin/notes/notes.js',
-                    async: true
-                },
+                    src ： ' ../plugin/notes/notes.js '，
+                    异步： true
+                }，
                 {
-                    src: 'https://ptteng.github.io/PPT/plugin/highlight/highlight.js',
-                    async: true,
-                    callback: function () {
-                        hljs.initHighlightingOnLoad();
+                    src ： ' ../plugin/highlight/highlight.js '，
+                    异步： 是的，
+                    callback ： function（）{
+                        hljs。initHighlightingOnLoad（）;
                     }
                 }
             ]
-        });
-    </script>
-</body>
+        }）;
+        //     原始类型对象直接赋值不会相互影响
+        //     var a = 1;
+        //
+        //     var b = a;
+        //     b = 10;
+        //     console.log（a）; // 1
+        // //
+        //     var a ='hello';
+        //     var b = a;
+        //     b ='world';
+        //     console.log（a）; // 你好
+        //
+        //     var a = true;
+        //     var b = a;
+        //     b = false;
+        //     console.log（a）;
+        //数组浅复制
+        //     var a = ['隔壁老王'，'冠希哥'，'宋经理'//定义一个称为a的属猪，里面有3个值，
+        //     ];
+        //     var b = a; //定义一个变量b，把a赋值给他，这样比，b和a一样了
+        //     b [2] ='冲冲老师'; //然后把b的第三个值等于冲冲老师
+        //     console.log（a）//那么现在打印a是什么结果呢
+        //
+        //     var arr = [“一个”，“两个”，“三个”]; //列表的深复制，slice方法
+        //     var arrtoo = arr.slice（1）;
+        //     arrtoo [2] =“ set Map”;
+        //     console.log（arr）; //一，二，三
+        //     console.log（arrtoo）; //一个，设置地图，三个
+        //
+        //     var arr1 = [“一个”，“两个”，“三个”]; //列表的深复制，concat方法
+        //     var arrtooo = arr1.concat（111111）;
+        //     arrtooo [1] =“将地图设置为”;
+        //     console.log（arr1）; //一，二，三
+        //     console.log（arrtooo）; //一个，设置为Map to，三个
+        //
+        //     var b = [1,2,3,4,5]; // concat的链接
+        //     var c = [6,7,8,9];
+        //     var d = [4,4,22]
+        //     console.log（b.concat（c，d））
+        var a = {
+            名称： ' yy '，
+            年龄： 26
+        }; //对象的浅拷贝哦
+        var b =  new  Object（）;
+        b。名称 =  a。名字 ;
+        b。年龄 =  a。年龄 ;
+        b。名称 =  ' xx ' ;
+        控制台。日志（a）; //对象{name =“ yy”，age = 26}
+        控制台。日志（b）; //对象{name =“ xx”，age = 26}
+        var d = { //对象的浅拷贝哦第一种
+            名称： ' d '，
+            oc ： {
+                年龄： 32
+            }，
+            燕麦： {
+                添加： {
+                    bb ： 12
+                }
+            }
+        };
+        var  deepCopy  =  函数（源）{
+            var result = {};
+            为（VAR密钥在源）{
+                result [key] =  typeof source [key] ===  ' object ' 吗？ deepCopy（source [key]）： source [key]
+            }
+            返回结果
+        };
+        var c =  deepCopy（d）;
+        c。名称 =  ' c ' ;
+        c。oc  = {
+            年龄： 49
+        };
+        控制台。日志（c）;
+        控制台。日志（d）;
+        //     var person = {//第二种深拷贝
+        //         名称：“ aa”，
+        //         朋友：['da'，'dsa'，'gf']
+        //     };
+        //
+        //     var aPerson = Object.create（person，{
+        // //名称：{
+        // //值：“ gee”
+        // //}
+        //     }）;
+        //
+        //     console.log（person.name）;
+        //     console.log（aPerson.friends）
+        var Chinese = {
+            国家： '中国'
+        }
+        var Doctor = {
+            职业： '医生'
+        }
+        函数 extendCopy（p）{
+            var c = {};
+            对于（var i in p）{
+                c [i] = p [i];
+            }
+            c。uber  = p;
+            返回 c;
+        }
+        var Doctor =  extendCopy（中文）；
+        医生。事业 =  '医生' ;
+        控制台。日志（医生）；//中国
+        中文。birthPlaces  = [ '北京'，'上海'，'香港' ];
+        var Doctor =  extendCopy（中文）；
+        医生。出生地。推（'厦门'）;
+    </ 脚本 >
 
-</html>
+
+    </ body >
+
+    </ html >
