@@ -1,0 +1,489 @@
+<html class="js no-mobile desktop no-ie chrome chrome69 task-section xkt-section gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions no-touch retina fontface domloaded gr__maikihyh_github_io w-613 gt-240 gt-320 gt-480 lt-640 lt-768 lt-800 lt-1024 lt-1280 lt-1440 lt-1680 lt-1920 portrait no-landscape"
+      id="2018-09-18-a-css-10-page">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>简述JS中this的指向</title>
+
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/reveal.css">
+
+    <!-- PPT主题，可以在/css/reveal/theme/中选择其他主题，目前暂时只能使用该模板 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/css/reveal/theme/ptt.css">
+
+    <!-- syntax highlighting 代码高亮主题 -->
+    <link rel="stylesheet" href="https://ptteng.github.io/PPT/lib/reveal/css/zenburn.css">
+
+    <style>
+        .float {
+            float: left;
+        }
+    </style>
+
+
+    <!-- 打印和PDF输出样式 -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'https://ptteng.github.io/PPT/css/reveal/print/pdf.css' : '../css/reveal/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" type="text/css" href="../css/reveal/print/paper.css">
+    <script type="text/javascript" src="../plugin/markdown/marked.js"></script>
+    <script type="text/javascript" src="../plugin/markdown/markdown.js"></script>
+    <script type="text/javascript" src="../plugin/notes/notes.js"></script>
+    <script type="text/javascript" src="../plugin/highlight/highlight.js"></script>
+</head>
+
+<body data-gr-c-s-loaded="true">
+<img src="./葡萄藤PPT_files/logo.png" alt="" usemap="#pttmap" class="base-logo">
+<map name="pttmap">
+    <area shape="rect" coords="0,0,276,58" href="http://www.jnshu.com/" alt="" target="_blank">
+</map>
+<div class="reveal center default" role="application" data-transition-speed="slow" data-background-transition="fade">
+    <div class="slides"
+         style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; transform: translate(-50%, -50%) scale(0.574688);">
+        <section class="present" style="top: 178px; display: block;">
+            <h2>【AngularJs 双向绑定原理】</h2>
+            <!--<h3>如何阻止事件冒泡和默认事件？</h3>-->
+            <p>分享人：余昕宸</p>
+        </section>
+        <section class="future" style="top: 1.5px; display: block;" hidden="" aria-hidden="true">
+            <p>目录</p>
+            <p>1.背景介绍</p>
+            <p>2.知识剖析</p>
+            <p>3.常见问题</p>
+            <p>4.解决方案</p>
+            <p>5.编码实战</p>
+            <p>6.扩展思考</p>
+            <p>7.参考文献</p>
+            <p>8.更多讨论</p>
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 267px; display: block;">
+            <h3>1.背景介绍</h3>
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+    
+            <p style="text-align: justify">
+                    AngularJs 为 scope 模型上设置了一个 监听队列，用来监听数据变化并更新 view 。每次绑定一个东西到 view(html) 上时 AngularJs 就会往 $watch 队列里插入一条 $watch，用来检测它监视的 model 里是否有变化的东西。当浏览器接收到可以被 angular context 处理的事件时，$digest 循环就会触发。$digest 会遍历所有的 $watch。从而更新DOM。
+
+            </p>
+
+        </section>
+       
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h3>2.知识剖析</h3>
+        </section>
+        <!--<section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">-->
+            <!--&lt;!&ndash;<h4>先来了解一下事件流</h4>&ndash;&gt;-->
+            <!--<p style="letter-spacing: 5px"> 由于其运行期绑定的特性，JavaScript 中的 this 含义要丰富得多，它可以是全局对象、当前对象或者任意对象，-->
+                <!--这完全取决于函数的调用方式。JavaScript 中函数的调用有以下几种方式：作为对象方法调用，作为函数调用，作为构造函数调用，-->
+                <!--和使用 apply 或 call 调用。下面我们将按照调用方式的不同，分别讨论 this 的含义。</p>-->
+
+        <!--</section>-->
+        <section class="present" style="top: 0px; display: block;">
+            <h4>watch作用</h4>
+            <p style="letter-spacing: 5px">
+                    这有点类似于我们的观察者模式，在当前作用域$scope下，
+                    我们创建一个监控器$watchers和一个监听器$watch，$watchers 负责管理所有的 $watch，
+                    当我们每次绑定到UI上的时候就自动创建一个$watch，并把它放到 $watchers。
+
+                   
+            </p>
+            <!-- <pre><code class="hljs less">
+               
+            </code></pre> -->
+        </section>
+        <section class="present" style="top: 0px; display: block;">
+            <h4>$digest作用</h4>
+            <p style="letter-spacing: 5px">
+                <div style="text-align: -webkit-auto">
+               
+
+               当浏览器接收到可以被angular context处理的事件时，
+               $digest循环就会触发。
+               $digest将会遍历我们的$watch，
+               如果$watch没有变化，这个循环检测就将停止，如果有至少一个更新过，这个循环就会再次触发，
+               直到所有的$watch都没有变化。这样就能够保证每个model都已经不会再变化。这就是脏检查(Dirty Checking)机制
+
+               
+            </div>
+                
+              
+            </p>
+            <!-- <pre><code class="hljs less">
+                var person = {
+                    fname:'花花',
+                    lname:"王",
+                    fullname:function () {
+                        console.log(this)
+                        return this.lname + this.fname;
+                    }
+                }
+                // console.log(person.fullname());
+               
+                var cs = person.fullname;
+                console.log(cs())
+            </code></pre> -->
+
+        </section>
+        <section class="present" style="top: 0px; display: block;">
+            <h4>脏检查机制</h4>
+            <p style="letter-spacing: 5px">
+               <div style="text-align: -webkit-auto">
+                   <div>对脏数据的检查就是脏检查，比较UI和后台数据是否一致。</div>
+                   <div> 只有当UI事件、ajax请求或者timeout延迟事件，才会触发脏检查</div>
+               </div> 
+
+               
+            </p>
+        </section>
+        <section class="present" style="top: 0px; display: block;">
+                <h4>$apply</h4>
+                <p style="letter-spacing: 5px">
+                   <div style="text-align: -webkit-auto">
+                        $apply 我们可以直接理解为刷新UI。如果当事件触发时，你调用$apply，它会进入angular context，如果没有调用就不会进入，之后的$digest检测机制就不会触发,
+                        并不直接使用$digest，而是调用$scope.$apply()，$apply内部会触发$digest递归遍历。
+                        同时，你可以给$apply传一个参数，是个函数，这个函数会在$digest开始之前执行。
+                      
+                        
+                   </div> 
+    
+                   
+                </p>
+            </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h3>3.常见问题</h3>
+            <p style="text-align: left">  angular内部怎么触发$digest？</p>
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <!--<h3>3.常见问题</h3>-->
+            <h4>解决方案</h4>
+            <div style="text-align: -webkit-auto">
+                    实际上，angular里面要求你通过ng-click, ng-modal, ng-keyup等来进行数据的双向绑定，为什么，因为这些angular的内部指令封装了$apply，比如ng-click，它其实包含了document.addEventListener('click')和$scope.$apply()。 
+            </div>
+          
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+
+            <!--<p style="letter-spacing: 5px">这两种方法是有区别的。return false不仅阻止了事件冒泡，还阻止了事件本身。-->
+                <!--stopPropagation()方法只会阻止事件冒泡，不会阻止事件本身。-->
+
+            <!--</p>-->
+            <p style="text-align: left">
+             
+            </p>
+        </section>
+
+        <!-- <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+
+            <!--<p style="letter-spacing: 5px">这两种方法是有区别的。return false不仅阻止了事件冒泡，还阻止了事件本身。-->
+            <!--stopPropagation()方法只会阻止事件冒泡，不会阻止事件本身。-->
+
+            <!--</p>-->
+            <!-- <p style="text-align: left">
+                如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
+            </p>
+        </section> --> 
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;"><h3>这些验证方法的优缺点是什么？</h3>
+
+        </section>
+        <!-- <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <p style="text-align: left"> 
+                第一种输入时进行实时验证，获取焦点时显示提示，随着输入的过程，符合要求后给予用户通过验证的反馈.
+                第二种失去焦点验证，会导致用户输入完账号后发现上边不符合标准，还要点回去进行修改，也是会影响一些用户体验。
+                第三种提交时才验证，这种就有些故意为了降低服务器而设置的表单验证了，考虑机器的成分大，对用户体验不够重视，是不被推荐的验证方式。
+
+                
+                
+            </p>
+           
+        </section> -->
+        <!-- <section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">
+            <section style="top: 330px; display: none;">
+                <p style="text-align: center">JavaScript 中的函数既可以被当作普通函数执行，也可以作为对象的方法执行，这是导致 this 含义如此丰富的主要原因
+                </p>
+                <!--<p style="text-align: center"> focus、blur和scroll事件不会冒泡。文档元素上的load事件会冒泡，但它会在document对象上停止冒泡而不会传播到window对象-->
+                <!--</p>-->
+            <!-- </section>
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <p style="text-align: left"> 一个函数被执行时，会创建一个执行环境（ExecutionContext），函数的所有的行为均发生在此执行环境中，
+                构建该执行环境时，JavaScript 首先会创建 arguments变量，其中包含调用函数时传入的参数。接下来创建作用域链。然后初始化变量，
+                首先初始化函数的形参表，值为 arguments变量中对应的值，如果 arguments变量中没有对应值，则该形参初始化为 undefined。 </p>
+        </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <p style="text-align: left"> 如果该函数中含有内部函数，则初始化这些内部函数。如果没有，继续初始化该函数内定义的局部变量，
+                需要注意的是此时这些变量初始化为 undefined，其赋值操作在执行环境（ExecutionContext）创建成功后，函数执行时才会执行，
+                这点对于我们理解 JavaScript 中的变量作用域非常重要，鉴于篇幅，我们先不在这里讨论这个话题。最后为 this变量赋值，
+                如前所述，会根据函数调用方式的不同，赋给 this全局对象，当前对象等。至此函数的执行环境（ExecutionContext）创建成功，
+                函数开始逐行执行，所需变量均从之前构建好的执行环境（ExecutionContext）中读取。</p>
+        </section> --> -
+        <!--<section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">-->
+            <!--<p style="text-align: left"> 我们来看看 this 在 JavaScript 中经常被误用的一种情况：回调函数。js 支持函数式编程，-->
+                <!--函数属于一级对象，可以作为参数被传递。请看下面的例子 myObject.handler 作为回调函数，会在 onclick 事件被触发时调用，-->
+                <!--但此时，该函数已经在另外一个执行环境（ExecutionContext）中执行了，this 自然也不会绑定到 myObject 对象上。</p>-->
+        <!--</section>-->
+        <!--<section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">-->
+            <!--<section style="top: 330px; display: none;">-->
+                <!--<p style="text-align: center">-->
+
+                    <!---->
+                    <!---->
+                        <!--</p>-->
+    <!---->
+                <!--</section>-->
+    <!---->
+            <!--</section>-->
+            <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+
+                <h3>6.编码实战</h3>
+            </section>
+
+            <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+                <h3>7.参考文献</h3>
+            </section>
+            <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+                <p><a href="https://gaohaoyang.github.io/2015/05/20/scope/" target="_blank">
+                    参考一</a>
+
+                </p>
+                <p><a href="https://juejin.im/entry/57f5d492bf22ec006475238f" target="_blank">参考2</a></p>
+                <p><a href="https://github.com/mqyqingfeng/Blog/issues/3" target="_blank">参考3</a></p>
+            </section>
+            <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+                <h3>8.更多讨论</h3>
+            </section>
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h3>脏检查机制</h3>
+            <p></p>
+        </section>
+            <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+                <h4>鸣谢</h4>
+                <p>感谢大家观看</p>
+                <p>
+                    <small>余昕宸</small>
+                </p>
+            </section>
+
+        </div>
+        <div class="backgrounds">
+            <div class="slide-background present" data-loaded="true" style="display: block;"></div>
+            <div class="slide-background future" data-loaded="true" style="display: block;"></div>
+            <div class="slide-background future" data-loaded="true" style="display: block;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background stack future" style="display: none;">
+                <div class="slide-background present" style="display: none;"></div>
+            </div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+            <div class="slide-background future" style="display: none;"></div>
+        </div>
+        <div class="progress" style="display: block;"><span style="width: 0px;"></span></div>
+        <aside class="controls" style="display: block;">
+            <button class="navigate-left" aria-label="previous slide"></button>
+            <button class="navigate-right enabled" aria-label="next slide"></button>
+            <button class="navigate-up" aria-label="above slide"></button>
+        </aside>
+        <div class="slide-number" style="display: none;"></div>
+        <div class="speaker-notes" data-prevent-swipe=""></div>
+        <div class="pause-overlay"></div>
+        <div id="aria-status-div" aria-live="polite" aria-atomic="true"
+             style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+            【简述JS中this的指向】
+
+            分享人：宋恒
+        </div>
+    </div>
+
+    <script src="https://ptteng.github.io/PPT/lib/reveal/js/head.min.js"></script>
+    <script src="https://ptteng.github.io/PPT/lib/reveal/reveal.js"></script>
+
+    <script>
+        // 以下为常见配置属性的默认值
+        // {
+        // 	controls: true, // 是否在右下角展示控制条
+        // 	progress: true, // 是否显示演示的进度条
+        // 	slideNumber: false, // 是否显示当前幻灯片的页数编号，也可以使用代码slideNumber: 'c / t' ，表示当前页/总页数。
+        // 	history: false, // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+        // 	keyboard: true, // 是否启用键盘快捷键来导航
+        // 	overview: true, // 是否启用幻灯片的概览模式，可使用"Esc"或"o"键来切换概览模式
+        // 	center: true, // 是否将幻灯片垂直居中
+        // 	touch: true, // 是否在触屏设备上启用触摸滑动切换
+        // 	loop: false, // 是否循环演示
+        // 	rtl: false, // 是否将演示的方向变成RTL，即从右往左
+        // 	fragments: true, // 全局开启和关闭碎片。
+        // 	autoSlide: 0, // 两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+        // 	transition: 'default', // 切换过渡效果，有none/fade/slide/convex/concave/zoom
+        // 	transitionSpeed: 'default', // 过渡速度，default/fast/slow
+        // 	mouseWheel: true, //是否启用通过鼠标滚轮来切换幻灯片
+        // }
+
+        // 初始化幻灯片
+        Reveal.initialize({
+            //        history: true,
+            transition: 'default',
+            transitionSpeed: 'slow',
+            dependencies: [{
+                src: '../plugin/markdown/marked.js'
+            },
+                {
+                    src: '../plugin/markdown/markdown.js'
+                },
+                {
+                    src: '../plugin/notes/notes.js',
+                    async: true
+                },
+                {
+                    src: '../plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }
+            ]
+        });
+        //    原始类型对象直接赋值不会相互影响
+        //    var a = 1;
+        //
+        //    var b = a;
+        //    b = 10;
+        //    console.log(a); // 1
+        ////
+        //    var a = 'hello';
+        //    var b = a;
+        //    b = 'world';
+        //    console.log(a); // hello
+        //
+        //    var a = true;
+        //    var b = a;
+        //    b = false;
+        //    console.log(a);
+
+        //数组浅复制
+        //    var a = ['隔壁老王','冠希哥', '宋经理' //定义一个名为a的属猪，里面有3个值，
+        //    ];
+        //    var b = a;   //定义一个变量b，把a赋值给他，这样比、b和a一样了
+        //    b[2] = '冲冲老师'; //然后把b的第三个值等于冲冲老师
+        //    console.log(a)//那么现在打印a 是什么结果呢
+        //
+        //    var arr = ["One","Two","Three"];   //数组的深复制，slice方法
+        //    var arrtoo = arr.slice(1);
+        //    arrtoo[2] = "set Map";
+        //    console.log(arr);//One,Two,Three
+        //    console.log(arrtoo);//One,set Map,Three
+
+        //
+        //    var arr1 = ["One","Two","Three"]; //数组的深复制，concat 方法
+        //    var arrtooo = arr1.concat(111111);
+        //    arrtooo[1] = "set Map To";
+        //    console.log(arr1);//One,Two,Three
+        //    console.log(arrtooo);//One,set Map To,Three
+
+        //
+        //    var b=[1,2,3,4,5];   //concat的链接
+        //    var c=[6,7,8,9];
+        //    var d =[4,4,22]
+        //    console.log(b.concat(c,d))
+
+        var a = {
+            name: 'yy',
+            age: 26
+        }; //对象的浅拷贝哦
+        var b = new Object();
+        b.name = a.name;
+        b.age = a.age;
+        b.name = 'xx';
+        console.log(a); //Object { name="yy", age=26}
+        console.log(b); //Object { name="xx", age=26}
+
+        var d = { //对象的浅拷贝哦 第一种
+            name: 'd',
+            oc: {
+                age: 32
+            },
+            oad: {
+                adds: {
+                    bb: 12
+                }
+            }
+        };
+        var deepCopy = function (source) {
+            var result = {};
+            for (var key in source) {
+                result[key] = typeof source[key] === 'object' ? deepCopy(source[key]) : source[key]
+            }
+            return result
+        };
+
+        var c = deepCopy(d);
+        c.name = 'c';
+        c.oc = {
+            age: 49
+        };
+        console.log(c);
+        console.log(d);
+
+
+        //    var person = {    //第二种深拷贝
+        //        name: 'aa',
+        //        friends: ['da', 'dsa', 'gf']
+        //    };
+        //
+        //    var aPerson = Object.create(person, {
+        ////        name: {
+        ////            value: "gee"
+        ////        }
+        //    });
+        //
+        //    console.log(person.name);
+        //    console.log(aPerson.friends)
+
+        var Chinese = {
+            nation: '中国'
+
+        }
+        var Doctor = {
+            career: '医生'
+        }
+
+        function extendCopy(p) {
+            var c = {};
+            for (var i in p) {
+                c[i] = p[i];
+            }
+            c.uber = p;
+            return c;
+        }
+
+        var Doctor = extendCopy(Chinese);
+        Doctor.career = '医生';
+        console.log(Doctor); // 中国
+        Chinese.birthPlaces = ['北京', '上海', '香港'];
+        var Doctor = extendCopy(Chinese);
+        Doctor.birthPlaces.push('厦门');
+    </script>
+
+
+    </body>
+
+    </html>
